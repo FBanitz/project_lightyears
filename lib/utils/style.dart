@@ -7,15 +7,15 @@ class Style {
   static const Color grey = Colors.grey;
   static final Color grey2 = Colors.grey[800] ?? grey;
 
-  static final TextStyle title1 = GoogleFonts.montserrat(
+  static final TextStyle title1Background = GoogleFonts.montserrat(
       fontSize: 52,
       foreground: Paint()
         ..style = PaintingStyle.stroke
-        ..strokeWidth = 16
+        ..strokeWidth = 8
         ..color = black,
       fontWeight: FontWeight.bold);
 
-  static final TextStyle title1Background = GoogleFonts.montserrat(
+  static final TextStyle title1 = GoogleFonts.montserrat(
       color: white, fontSize: 52, fontWeight: FontWeight.bold);
 
   static final TextStyle title2 = GoogleFonts.montserrat(

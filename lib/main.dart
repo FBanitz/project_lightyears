@@ -8,8 +8,8 @@ import 'package:project_lightyears/archetypes/planet/planet_archetype.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
+  await Hive.initFlutter();
   Hive
-    ..initFlutter()
     ..registerAdapter(PlanetAdapter())
     ..registerAdapter(HazardAdapter())
     ..registerAdapter(planetArchetypesEnumAdapter());

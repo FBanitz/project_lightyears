@@ -6,44 +6,44 @@ part of 'planet_archetype.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class planetArchetypesEnumAdapter extends TypeAdapter<planetArchetypesEnum> {
+class PlanetArchetypesEnumAdapter extends TypeAdapter<PlanetArchetypesEnum> {
   @override
   final int typeId = 2;
 
   @override
-  planetArchetypesEnum read(BinaryReader reader) {
+  PlanetArchetypesEnum read(BinaryReader reader) {
     switch (reader.readByte()) {
       case 0:
-        return planetArchetypesEnum.terran;
+        return PlanetArchetypesEnum.terran;
       case 1:
-        return planetArchetypesEnum.toxic;
+        return PlanetArchetypesEnum.toxic;
       case 2:
-        return planetArchetypesEnum.barren;
+        return PlanetArchetypesEnum.barren;
       case 3:
-        return planetArchetypesEnum.water;
+        return PlanetArchetypesEnum.water;
       case 4:
-        return planetArchetypesEnum.undefined;
+        return PlanetArchetypesEnum.undefined;
       default:
-        return planetArchetypesEnum.terran;
+        return PlanetArchetypesEnum.terran;
     }
   }
 
   @override
-  void write(BinaryWriter writer, planetArchetypesEnum obj) {
+  void write(BinaryWriter writer, PlanetArchetypesEnum obj) {
     switch (obj) {
-      case planetArchetypesEnum.terran:
+      case PlanetArchetypesEnum.terran:
         writer.writeByte(0);
         break;
-      case planetArchetypesEnum.toxic:
+      case PlanetArchetypesEnum.toxic:
         writer.writeByte(1);
         break;
-      case planetArchetypesEnum.barren:
+      case PlanetArchetypesEnum.barren:
         writer.writeByte(2);
         break;
-      case planetArchetypesEnum.water:
+      case PlanetArchetypesEnum.water:
         writer.writeByte(3);
         break;
-      case planetArchetypesEnum.undefined:
+      case PlanetArchetypesEnum.undefined:
         writer.writeByte(4);
         break;
     }
@@ -55,7 +55,7 @@ class planetArchetypesEnumAdapter extends TypeAdapter<planetArchetypesEnum> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is planetArchetypesEnumAdapter &&
+      other is PlanetArchetypesEnumAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

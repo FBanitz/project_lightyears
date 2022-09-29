@@ -12,7 +12,7 @@ void main() async {
   Hive
     ..registerAdapter(PlanetAdapter())
     ..registerAdapter(HazardAdapter())
-    ..registerAdapter(planetArchetypesEnumAdapter());
+    ..registerAdapter(PlanetArchetypesEnumAdapter());
   await Hive.openBox<Planet>("planets");
   runApp(const MyApp());
 }

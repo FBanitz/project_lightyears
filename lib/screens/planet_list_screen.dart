@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:project_lightyears/archetypes/hazard/hazard.dart';
+import 'package:project_lightyears/controllers/boxes/planet_box.dart';
 import 'package:project_lightyears/models/planet.dart';
 import 'package:project_lightyears/utils/style.dart';
 import 'package:project_lightyears/widgets/new_planet_buton.dart';
@@ -16,74 +17,70 @@ class PlanetListScreen extends StatefulWidget {
 }
 
 class _PlanetListScreenState extends State<PlanetListScreen> {
+
+  ScrollController scrollController = ScrollController();
+
   @override
   Widget build(BuildContext context) {
+    List<Planet> planets = PlanetBox().findAll();
+
+    void reload () {
+      setState(() {
+        planets = PlanetBox().findAll();
+      });
+    }
     return Scaffold(
       backgroundColor: Style.black,
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              fit: BoxFit.cover,
-              filterQuality: FilterQuality.none,
-              image: AssetImage("assets/space_background.png")),
-        ),
-        child: SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(32),
-                child: Stack(
-                  children: [
-                    Text(
-                      "Project\nLightYears",
-                      style: Style.title1Background,
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      "Project\nLightYears",
-                      style: Style.title1,
-                      textAlign: TextAlign.center,
-                    ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(32),
+              child: Stack(
+                children: [
+                  Text(
+                    "Project\nLightYears",
+                    style: Style.title1Background,
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    "Project\nLightYears",
+                    style: Style.title1,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Scrollbar(
+                controller: scrollController,
+                interactive: kIsWeb,
+                thumbVisibility: kIsWeb,
+                child: ListView(
+                  controller: scrollController,
+                  children: <Widget>[] + planets
+                  .map((planet) => PlanetItem(
+                    planet: planet,
+                    onDelete: () {
+                      debugPrint("delete");
+                      PlanetBox().delete(planet);
+                      reload();
+                    },
+                  ))
+                  .toList() +
+                  [
+                    NewPlanetButon(
+                      onTap: () {
+                      PlanetBox().add(
+                        Planet.generate(),
+                      );
+                      reload();
+                    }),
                   ],
                 ),
               ),
-              Expanded(
-                child: Scrollbar(
-                    interactive: kIsWeb,
-                    isAlwaysShown: kIsWeb,
-                    child: ValueListenableBuilder<Box<Planet>>(
-                        valueListenable:
-                            Hive.box<Planet>("planets").listenable(),
-                        builder: (context, planets, _) {
-                          return ListView(
-                            children: <Widget>[] +
-                                planets.values
-                                    .map((planet) => PlanetItem(
-                                          planet: planet,
-                                        ))
-                                    .toList() +
-                                [
-                                  NewPlanetButon(onTap: () {
-                                    setState(() {});
-                                    Hive.box<Planet>("planets").add(
-                                      Planet(
-                                          name: "Test",
-                                          urlName: "test",
-                                          archetype:
-                                              planetArchetypesEnum.terran,
-                                          planetIcon: "terran_001",
-                                          hazards: [
-                                            Hazards.habitable,
-                                            Hazards.hot
-                                          ]),
-                                    );
-                                  })
-                                ],
-                          );
-                        })),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -1,0 +1,140 @@
+{
+  "main": {
+    "id": "954a66e1197510ee",
+    "type": "split",
+    "children": [
+      {
+        "id": "12de8a66d9040367",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "README.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a14edd5018ee9449",
+    "type": "split",
+    "children": [
+      {
+        "id": "da44c6a523469d4a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "454022dea57923f9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "f3d5f11698fef310",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3c14e5f889e0f7e4",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "cc743804b06ef442",
+    "type": "split",
+    "children": [
+      {
+        "id": "85b8ca1f3829d4ca",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bf301acbf51302b6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "28d9332b3c2da172",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "88f0477d3100edf7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "0e8787989cf7333e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "12de8a66d9040367",
+  "lastOpenFiles": [
+    "docs/dev/models/Planet.md",
+    "docs/dev/utils/Generators.md",
+    "docs/index.md",
+    "Infrastructure.md",
+    "PlanetArchetypesEnum.md",
+    "docs/dev/Models.md"
+  ]
+}

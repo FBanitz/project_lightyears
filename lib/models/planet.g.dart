@@ -19,8 +19,8 @@ class PlanetAdapter extends TypeAdapter<Planet> {
     return Planet(
       name: fields[0] as String,
       urlName: fields[1] as String,
-      archetype: fields[2] as planetArchetypesEnum,
-      planetIcon: fields[3] as String,
+      archetype: fields[2] as PlanetArchetypesEnum,
+      planetIconPath: fields[3] as String,
       infrastructures: (fields[4] as List).cast<dynamic>(),
       hazards: (fields[5] as List).cast<Hazard>(),
     );
@@ -37,7 +37,7 @@ class PlanetAdapter extends TypeAdapter<Planet> {
       ..writeByte(2)
       ..write(obj.archetype)
       ..writeByte(3)
-      ..write(obj.planetIcon)
+      ..write(obj.planetIconPath)
       ..writeByte(4)
       ..write(obj.infrastructures)
       ..writeByte(5)

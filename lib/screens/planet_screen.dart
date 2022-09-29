@@ -25,39 +25,70 @@ class _PlanetScreenState extends State<PlanetScreen> {
         padding: const EdgeInsets.symmetric(vertical: 16),
         width: double.infinity,
         decoration: const BoxDecoration(
-            color: Style.black,
-            image: DecorationImage(
-              fit: BoxFit.fitWidth,
-              alignment: FractionalOffset.topCenter,
-              image: AssetImage('assets/space_background.png'),
-              filterQuality: FilterQuality.none,
-            )),
-        child: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-            fit: BoxFit.fitHeight,
-            alignment: Alignment.centerRight,
-            filterQuality: FilterQuality.none,
-            image: AssetImage('assets/planets/${_planet.planetIcon}_half.gif'),
-          )),
-          child: Column(
-            children: [
-              Stack(
+          color: Style.black,
+        ),
+        child: Stack(
+          alignment: AlignmentDirectional.center,
+          children: [
+            Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: LayoutBuilder(
+                builder: (context, layout) {
+                  return Padding(
+                    padding: const EdgeInsets.fromLTRB(8, 25, 0, 8),
+                    child: SizedBox(
+                      height: layout.maxHeight,
+                      width: layout.maxWidth / 2,
+                      child: OverflowBox(
+                        maxWidth: double.infinity,
+                        alignment: Alignment.centerLeft,
+                        child: ClipRect(
+                          clipper: RectClipper(),
+                          child: SizedBox(
+                            width: layout.maxWidth,
+                            height: layout.maxHeight,
+                            child: Image.asset('assets/planets/${_planet.planetIconPath}.gif')
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                }
+              ),
+            ),
+            Center(
+              child: Column(
                 children: [
-                  Text(
-                    _planet.name,
-                    style: Style.title1Background,
-                  ),
-                  Text(
-                    _planet.name,
-                    style: Style.title1,
+                  Stack(
+                    children: [
+                      Text(
+                        _planet.name,
+                        style: Style.title1Background,
+                      ),
+                      Text(
+                        _planet.name,
+                        style: Style.title1,
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
+  }
+}
+
+class RectClipper extends CustomClipper<Rect> {
+  @override
+  Rect getClip(Size size) {
+    return Rect.fromLTWH(0, 0, size.width/2, size.height);
+  }
+
+  @override
+  bool shouldReclip(covariant) {
+    return false;
   }
 }

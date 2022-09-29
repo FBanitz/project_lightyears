@@ -4,8 +4,8 @@
 
 ## Inspired by :
 
-### Starsector
-### Prosperous Universe
+- ### Starsector
+- ### Prosperous Universe
 
 ## Concept, Interfaces, development :
 
